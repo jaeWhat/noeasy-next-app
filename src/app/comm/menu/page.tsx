@@ -2,6 +2,7 @@
 
 import { Button, Typography } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import pageStyles from '../../styles/page.module.css';
 
 type RowType = {
   id?: number;
@@ -53,11 +54,11 @@ export default function CommonMenuPage() {
 
   return (
     <>
-      <div className='page-head'>
-        <div className='page-title'>
+      <div className={pageStyles.pageHead}>
+        <div className={pageStyles.pageTitle}>
           <Typography variant="h6" sx={{ color: 'white' }}>Common Menu Page</Typography>
         </div>
-        <div className='page-button'>
+        <div className={pageStyles.pageButton}>
           <Button variant="contained" color="warning">
             <Typography variant="button">Reset</Typography>
           </Button>
@@ -72,7 +73,7 @@ export default function CommonMenuPage() {
           </Button>
         </div>
       </div>
-      <div className='page-body'>
+      <div className={pageStyles.pageBody}>
         <DataGrid
           rows={rows}
           columns={columns}

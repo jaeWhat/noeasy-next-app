@@ -2,20 +2,21 @@
 
 import { useState } from "react";
 import { Button, Box, Card, Typography } from "@mui/material";
+import pageStyles from '../../styles/page.module.css';
 
 export default function ExampleCounterPage() {
   const [count, setCount] = useState<number>(0);
 
   return (
     <>
-      <div className='page-head'>
-        <div className='page-title'>
+      <div className={pageStyles.pageHead}>
+        <div className={pageStyles.pageTitle}>
           <Typography variant="h6" sx={{ color: 'white' }}>Example Counter Page</Typography>
         </div>
-        <div className='page-button'>
+        <div className={pageStyles.pageButton}>
         </div>
       </div>
-      <div className='page-body'>
+      <div className={pageStyles.pageBody}>
         <Box
           sx={{
             width: '100%',

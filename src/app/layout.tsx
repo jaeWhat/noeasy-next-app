@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from 'next/link';
 import "./globals.css";
+import layoutStyles from './styles/layout.module.css';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,35 +27,35 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <div className='layout-header'>
+        <div className={layoutStyles.layoutHeader}>
           <Link href={"/"}>Noeasy App</Link>
         </div>
-        <div className='layout-container'>
-          <div className='layout-aside'>
-            <div className='layout-aside-menu'>
-              <div className='layout-aside-title'>
+        <div className={layoutStyles.layoutContainer}>
+          <div className={layoutStyles.layoutAside}>
+            <div className={layoutStyles.layoutAsideMenu}>
+              <div className={layoutStyles.layoutAsideTitle}>
                 Common
               </div>
-              <div className='layout-aside-item'>
+              <div className={layoutStyles.layoutAsideItem}>
                 <Link href={"/comm/menu"}>Menu</Link>
               </div>
             </div>
-            <div className='layout-aside-menu'>
-              <div className='layout-aside-title'>
+            <div className={layoutStyles.layoutAsideMenu}>
+              <div className={layoutStyles.layoutAsideTitle}>
                 Example
               </div>
-              <div className='layout-aside-item'>
+              <div className={layoutStyles.layoutAsideItem}>
                 <Link href={"/exam/counter"}>Counter</Link>
               </div>
-              <div className='layout-aside-item'>
+              <div className={layoutStyles.layoutAsideItem}>
                 <Link href={"/exam/table"}>Table</Link>
               </div>
-              <div className='layout-aside-item'>
+              <div className={layoutStyles.layoutAsideItem}>
                 <Link href={"/exam/typography"}>Typography</Link>
               </div>
             </div>
           </div>
-          <div className='layout-contents'>
+          <div className={layoutStyles.layoutContents}>
             {children}
           </div>
         </div>
