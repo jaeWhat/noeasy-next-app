@@ -36,23 +36,15 @@ export default function RootLayout({
               <div className={layoutStyles.layoutAsideTitle}>
                 Common
               </div>
-              <div className={layoutStyles.layoutAsideItem}>
-                <Link href={"/comm/menu"}>Menu</Link>
-              </div>
+              <Link href={"/comm/menu"} className={layoutStyles.layoutAsideItem}>Menu</Link>
             </div>
             <div className={layoutStyles.layoutAsideMenu}>
               <div className={layoutStyles.layoutAsideTitle}>
                 Example
               </div>
-              <div className={layoutStyles.layoutAsideItem}>
-                <Link href={"/exam/counter"}>Counter</Link>
-              </div>
-              <div className={layoutStyles.layoutAsideItem}>
-                <Link href={"/exam/table"}>Table</Link>
-              </div>
-              <div className={layoutStyles.layoutAsideItem}>
-                <Link href={"/exam/typography"}>Typography</Link>
-              </div>
+              <Link href={"/exam/counter"} className={layoutStyles.layoutAsideItem}>Counter</Link>
+              <Link href={"/exam/table"} className={layoutStyles.layoutAsideItem}>Table</Link>
+              <Link href={"/exam/typography"} className={layoutStyles.layoutAsideItem}>Typography</Link>
             </div>
           </div>
           <div className={layoutStyles.layoutContents}>
