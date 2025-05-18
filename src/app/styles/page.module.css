@@ -166,3 +166,39 @@ a.secondary {
     filter: invert();
   }
 }
+
+/* Page */
+.pageHead {
+  display: flex;
+  width: 100%;
+  height: 2rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  align-items: center;
+}
+.pageTitle {
+  display: flex;
+  width: 50%;
+  height: 2rem;
+  padding: 0 0.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  align-items: center;
+}
+.pageButton {
+  display: flex;
+  width: 50%;
+  height: 2rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+.pageBody {
+  display: flex;
+  overflow-y: auto;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.5rem;
+}
