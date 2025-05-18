@@ -43,6 +43,8 @@
   height: 1rem;
   padding-left: 1.5rem;
   align-items: center;
+  text-decoration: none;
+  color: inherit;
 }
 .layoutContents {
   border: 1px solid white;
