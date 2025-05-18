@@ -69,11 +69,11 @@ const rows = [
 export default function ExampleTablePage() {
   return (
     <>
-      <div className='layout-contents-head'>
-        <div className='layout-contents-title'>
+      <div className='page-head'>
+        <div className='page-title'>
           <Typography variant="h6" sx={{ color: 'white' }}>Example Table Page</Typography>
         </div>
-        <div className='layout-contents-button'>
+        <div className='page-button'>
           <Button variant="contained" color="warning">
             <Typography variant="button">Reset</Typography>
           </Button>
@@ -88,7 +88,7 @@ export default function ExampleTablePage() {
           </Button>
         </div>
       </div>
-      <div className='layout-contents-body'>
+      <div className='page-body'>
         <DataGrid
           rows={rows}
           columns={columns}

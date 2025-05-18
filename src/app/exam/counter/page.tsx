@@ -8,10 +8,14 @@ export default function ExampleCounterPage() {
 
   return (
     <>
-      <div className='layout-contents-head'>
-        <Typography variant="h6" sx={{ color: 'white' }}>Example Counter Page</Typography>
+      <div className='page-head'>
+        <div className='page-title'>
+          <Typography variant="h6" sx={{ color: 'white' }}>Example Counter Page</Typography>
+        </div>
+        <div className='page-button'>
+        </div>
       </div>
-      <div className='layout-contents-body'>
+      <div className='page-body'>
         <Box
           sx={{
             width: '100%',
