@@ -1,19 +1,18 @@
 "use client";
 
 import { Box, Typography } from "@mui/material";
-import styles from "../../page.module.css";
 
 export default function ExampleTypographyPage() {
   return (
     <>
-      <div className={styles.pageHead}>
-        <div className={styles.pageTitle}>
+      <div className='page-head'>
+        <div className='page-title'>
           <Typography variant="h6" sx={{ color: 'white' }}>Example Typography Page</Typography>
         </div>
-        <div className={styles.pageButton}>
+        <div className='page-button'>
         </div>
       </div>
-      <div className={styles.pageBody}>
+      <div className='page-body'>
         <Box
           sx={{
             width: '100%',

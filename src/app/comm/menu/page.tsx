@@ -2,7 +2,6 @@
 
 import { Button, Typography } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import styles from "../../page.module.css";
 
 type RowType = {
   id?: number;
@@ -12,7 +11,6 @@ type RowType = {
 };
 
 const columns: GridColDef<RowType>[] = [
-// const columns: GridColDef<(typeof rows)[number]>[] = [
   { field: 'id' },
   {
     field: 'menuCode',
@@ -55,11 +53,11 @@ export default function CommonMenuPage() {
 
   return (
     <>
-      <div className={styles.pageHead}>
-        <div className={styles.pageTitle}>
+      <div className='page-head'>
+        <div className='page-title'>
           <Typography variant="h6" sx={{ color: 'white' }}>Common Menu Page</Typography>
         </div>
-        <div className={styles.pageButton}>
+        <div className='page-button'>
           <Button variant="contained" color="warning">
             <Typography variant="button">Reset</Typography>
           </Button>
@@ -74,7 +72,7 @@ export default function CommonMenuPage() {
           </Button>
         </div>
       </div>
-      <div className={styles.pageBody}>
+      <div className='page-body'>
         <DataGrid
           rows={rows}
           columns={columns}
