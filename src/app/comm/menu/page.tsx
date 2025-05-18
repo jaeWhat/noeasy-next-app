@@ -2,62 +2,64 @@
 
 import { Button, Typography } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import styles from "../../page.module.css";
 
-const columns: GridColDef<(typeof rows)[number]>[] = [
-  { field: 'id', headerName: 'ID', width: 90 },
+type RowType = {
+  id?: number;
+  menuCode?: string;
+  menuName?: string;
+  parentMenu?: string;
+};
+
+const columns: GridColDef<RowType>[] = [
+// const columns: GridColDef<(typeof rows)[number]>[] = [
+  { field: 'id' },
   {
     field: 'menuCode',
     headerName: 'Menu Code',
     editable: true,
+    flex: 1
   },
   {
     field: 'menuName',
     headerName: 'Menu Name',
     editable: true,
+    flex: 1
+  },
+  {
+    field: 'parentMenu',
+    headerName: 'Parent Menu Code',
+    editable: true,
+    flex: 1
   },
 ];
 
-const rows = [
-  { id: 1, menuCode: 'Snow', menuName: 'Jon' },
-  { id: 2, menuCode: 'Lannister', menuName: 'Cersei' },
-  { id: 3, menuCode: 'Lannister', menuName: 'Jaime' },
-  { id: 4, menuCode: 'Stark', menuName: 'Arya' },
-  { id: 5, menuCode: 'Targaryen', menuName: 'Daenerys' },
-  { id: 6, menuCode: 'Melisandre', menuName: null, },
-  { id: 7, menuCode: 'Clifford', menuName: 'Ferrara' },
-  { id: 8, menuCode: 'Frances', menuName: 'Rossini' },
-  { id: 9, menuCode: 'Roxie', menuName: 'Harvey' },
-  { id: 10, menuCode: 'Snow', menuName: 'Jon' },
-  { id: 11, menuCode: 'Snow', menuName: 'Jon' },
-  { id: 12, menuCode: 'Lannister', menuName: 'Cersei' },
-  { id: 13, menuCode: 'Lannister', menuName: 'Jaime' },
-  { id: 14, menuCode: 'Stark', menuName: 'Arya' },
-  { id: 15, menuCode: 'Targaryen', menuName: 'Daenerys' },
-  { id: 16, menuCode: 'Melisandre', menuName: null, },
-  { id: 17, menuCode: 'Clifford', menuName: 'Ferrara' },
-  { id: 18, menuCode: 'Frances', menuName: 'Rossini' },
-  { id: 19, menuCode: 'Roxie', menuName: 'Harvey' },
-  { id: 20, menuCode: 'Snow', menuName: 'Jon' },
-  { id: 21, menuCode: 'Snow', menuName: 'Jon' },
-  { id: 22, menuCode: 'Lannister', menuName: 'Cersei' },
-  { id: 23, menuCode: 'Lannister', menuName: 'Jaime' },
-  { id: 24, menuCode: 'Stark', menuName: 'Arya' },
-  { id: 25, menuCode: 'Targaryen', menuName: 'Daenerys' },
-  { id: 26, menuCode: 'Melisandre', menuName: null, },
-  { id: 27, menuCode: 'Clifford', menuName: 'Ferrara' },
-  { id: 28, menuCode: 'Frances', menuName: 'Rossini' },
-  { id: 29, menuCode: 'Roxie', menuName: 'Harvey' },
-  { id: 30, menuCode: 'Snow', menuName: 'Jon' },
-];
-
 export default function CommonMenuPage() {
+  const rows: RowType[] = [
+    { id: 1, menuCode: 'Snow', menuName: 'Jon', parentMenu: 'Jon' },
+    { id: 2, menuCode: 'Lannister', menuName: 'Cersei', parentMenu: 'Cersei' },
+    { id: 3, menuCode: 'Lannister', menuName: 'Jaime', parentMenu: 'Jaime' },
+    { id: 4, menuCode: 'Stark', menuName: 'Arya', parentMenu: 'Arya' },
+    { id: 5, menuCode: 'Targaryen', menuName: 'Daenerys', parentMenu: 'Daenerys' },
+    { id: 6, menuCode: 'Melisandre'},
+    { id: 7, menuCode: 'Clifford', menuName: 'Ferrara', parentMenu: 'Ferrara' },
+    { id: 8, menuCode: 'Frances', menuName: 'Rossini', parentMenu: 'Rossini' },
+    { id: 9, menuCode: 'Roxie', menuName: 'Harvey', parentMenu: 'Harvey' },
+    { id: 10, menuCode: 'Snow', menuName: 'Jon', parentMenu: 'Jon' },
+    { id: 11, menuCode: 'Snow', menuName: 'Jon', parentMenu: 'Jon' },
+    { id: 12, menuCode: 'Lannister', menuName: 'Cersei', parentMenu: 'Cersei' },
+    { id: 13, menuCode: 'Lannister', menuName: 'Jaime', parentMenu: 'Jaime' },
+    { id: 14, menuCode: 'Stark', menuName: 'Arya', parentMenu: 'Arya' },
+    { id: 15, menuCode: 'Targaryen', menuName: 'Daenerys', parentMenu: 'Daenerys' },
+  ];
+
   return (
     <>
-      <div className='layout-contents-head'>
-        <div className='layout-contents-title'>
+      <div className={styles.pageHead}>
+        <div className={styles.pageTitle}>
           <Typography variant="h6" sx={{ color: 'white' }}>Common Menu Page</Typography>
         </div>
-        <div className='layout-contents-button'>
+        <div className={styles.pageButton}>
           <Button variant="contained" color="warning">
             <Typography variant="button">Reset</Typography>
           </Button>
@@ -72,10 +74,16 @@ export default function CommonMenuPage() {
           </Button>
         </div>
       </div>
-      <div className='layout-contents-body'>
+      <div className={styles.pageBody}>
         <DataGrid
           rows={rows}
           columns={columns}
+          columnVisibilityModel={{
+            id: false,
+            menuCode: true,
+            menuName: true,
+            parentMenu: true,
+          }}
           initialState={{
             pagination: {
               paginationModel: {

@@ -49,6 +49,9 @@ export default function RootLayout({
               <div className='layout-aside-item'>
                 <Link href={"/exam/table"}>Table</Link>
               </div>
+              <div className='layout-aside-item'>
+                <Link href={"/exam/typography"}>Typography</Link>
+              </div>
             </div>
           </div>
           <div className='layout-contents'>

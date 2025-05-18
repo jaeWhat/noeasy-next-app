@@ -2,6 +2,7 @@
 
 import { Button, Typography } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import styles from "../../page.module.css";
 
 const columns: GridColDef<(typeof rows)[number]>[] = [
   { field: 'id', headerName: 'ID', width: 90 },
@@ -69,11 +70,11 @@ const rows = [
 export default function ExampleTablePage() {
   return (
     <>
-      <div className='layout-contents-head'>
-        <div className='layout-contents-title'>
+      <div className={styles.pageHead}>
+        <div className={styles.pageTitle}>
           <Typography variant="h6" sx={{ color: 'white' }}>Example Table Page</Typography>
         </div>
-        <div className='layout-contents-button'>
+        <div className={styles.pageButton}>
           <Button variant="contained" color="warning">
             <Typography variant="button">Reset</Typography>
           </Button>
@@ -88,7 +89,7 @@ export default function ExampleTablePage() {
           </Button>
         </div>
       </div>
-      <div className='layout-contents-body'>
+      <div className={styles.pageBody}>
         <DataGrid
           rows={rows}
           columns={columns}
