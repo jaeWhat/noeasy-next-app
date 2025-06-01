@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import pageStyles from '@/app/styles/page.module.css';
-import { getMenu } from "@/api/menu/menuApi";
-import { Menu } from "@/api/types";
+import { getPrtfDtl } from "@/api/prtf/prtfDtlApi";
+import { PrtfDtl } from "@/api/types";
 import {
   DataGrid,
   GridCellEditStopParams,
@@ -14,23 +14,23 @@ import {
 } from "@mui/x-data-grid";
 import { Button, Typography } from "@mui/material";
 
-const columns: GridColDef<Menu>[] = [
+const columns: GridColDef<PrtfDtl>[] = [
   { field: 'id' },
   {
-    field: 'menuGrp',
-    headerName: 'Menu Group',
+    field: 'prtfGrp',
+    headerName: 'Prtf Group',
     editable: false,
     flex: 1
   },
   {
-    field: 'menuCode',
-    headerName: 'Menu Code',
+    field: 'prtfCode',
+    headerName: 'Prtf Code',
     editable: false,
     flex: 1
   },
   {
-    field: 'menuName',
-    headerName: 'Menu Name',
+    field: 'prtfName',
+    headerName: 'Prtf Name',
     editable: true,
     flex: 1
   },
@@ -43,16 +43,16 @@ const columns: GridColDef<Menu>[] = [
   },
 ];
 
-export default function CommonMenuPage() {
+export default function CommonPrtfPage() {
 
-  const [rows, setRows] = useState<Menu[]>([]);
+  const [rows, setRows] = useState<PrtfDtl[]>([]);
   const [selectionModel, setSelectionModel] = useState<GridRowSelectionModel>();
 
   useEffect(() => {
     getData();
   }, []);
 
-  const handleProcessRowUpdate = (newRow: Menu) => {
+  const handleProcessRowUpdate = (newRow: PrtfDtl) => {
     // 새로 입력된 row 데이터를 모델에 반영
     const updatedRows = rows.map((row) =>
       row.id === newRow.id ? { ...row, ...newRow } : row
@@ -68,7 +68,7 @@ export default function CommonMenuPage() {
 
   // Search
   const getData = async () => {
-    const data: Menu[] = await getMenu();
+    const data: PrtfDtl[] = await getPrtfDtl();
     setRows(data);
   }
 
@@ -76,7 +76,7 @@ export default function CommonMenuPage() {
     <>
       <div className={pageStyles.pageHead}>
         <div className={pageStyles.pageTitle}>
-          <Typography variant="h6" sx={{ color: 'white' }}>Common Menu Page</Typography>
+          <Typography variant="h6" sx={{ color: 'white' }}>Common Prtf Page</Typography>
         </div>
         <div className={pageStyles.pageButton}>
           <Button variant="outlined" onClick={() => getSelectionModel()}>

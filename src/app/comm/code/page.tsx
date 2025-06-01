@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import pageStyles from '@/app/styles/page.module.css';
-import { getMenu } from "@/api/menu/menuApi";
-import { Menu } from "@/api/types";
+import { getCode } from "@/api/code/codeApi";
+import { Code } from "@/api/types";
 import {
   DataGrid,
   GridCellEditStopParams,
@@ -14,23 +14,23 @@ import {
 } from "@mui/x-data-grid";
 import { Button, Typography } from "@mui/material";
 
-const columns: GridColDef<Menu>[] = [
+const columns: GridColDef<Code>[] = [
   { field: 'id' },
   {
-    field: 'menuGrp',
-    headerName: 'Menu Group',
+    field: 'codeGrp',
+    headerName: 'Code Group',
     editable: false,
     flex: 1
   },
   {
-    field: 'menuCode',
-    headerName: 'Menu Code',
+    field: 'code',
+    headerName: 'Code',
     editable: false,
     flex: 1
   },
   {
-    field: 'menuName',
-    headerName: 'Menu Name',
+    field: 'codeName',
+    headerName: 'Code Name',
     editable: true,
     flex: 1
   },
@@ -43,23 +43,14 @@ const columns: GridColDef<Menu>[] = [
   },
 ];
 
-export default function CommonMenuPage() {
+export default function CommonCodePage() {
 
-  const [rows, setRows] = useState<Menu[]>([]);
+  const [rows, setRows] = useState<Code[]>([]);
   const [selectionModel, setSelectionModel] = useState<GridRowSelectionModel>();
 
   useEffect(() => {
     getData();
   }, []);
-
-  const handleProcessRowUpdate = (newRow: Menu) => {
-    // 새로 입력된 row 데이터를 모델에 반영
-    const updatedRows = rows.map((row) =>
-      row.id === newRow.id ? { ...row, ...newRow } : row
-    );
-    setRows(updatedRows);
-    return newRow; // 필수
-  };
 
   // Console Model
   const getSelectionModel = () => {
@@ -68,15 +59,24 @@ export default function CommonMenuPage() {
 
   // Search
   const getData = async () => {
-    const data: Menu[] = await getMenu();
+    const data: Code[] = await getCode();
     setRows(data);
   }
+
+  const handleProcessRowUpdate = (newRow: Code) => {
+    // 새로 입력된 row 데이터를 모델에 반영
+    const updatedRows = rows.map((row) =>
+      row.id === newRow.id ? { ...row, ...newRow } : row
+    );
+    setRows(updatedRows);
+    return newRow; // 필수
+  };
 
   return (
     <>
       <div className={pageStyles.pageHead}>
         <div className={pageStyles.pageTitle}>
-          <Typography variant="h6" sx={{ color: 'white' }}>Common Menu Page</Typography>
+          <Typography variant="h6" sx={{ color: 'white' }}>Common Code Page</Typography>
         </div>
         <div className={pageStyles.pageButton}>
           <Button variant="outlined" onClick={() => getSelectionModel()}>
@@ -101,7 +101,7 @@ export default function CommonMenuPage() {
           rows={rows}
           columns={columns}
           density="compact"
-          editMode="row" // 또는 "cell"
+          // editMode="row" // 또는 "cell"
           processRowUpdate={handleProcessRowUpdate}
           columnVisibilityModel={{
             id: false,
