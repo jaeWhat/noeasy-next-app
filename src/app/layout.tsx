@@ -37,11 +37,21 @@ export default function RootLayout({
                 Common
               </div>
               <Link href={"/comm/menu"} className={layoutStyles.layoutAsideItem}>Menu</Link>
+              <Link href={"/comm/code"} className={layoutStyles.layoutAsideItem}>Code</Link>
+            </div>
+            <div className={layoutStyles.layoutAsideMenu}>
+              <div className={layoutStyles.layoutAsideTitle}>
+                LS Sec
+              </div>
+              <Link href={"/ls-sec/counter"} className={layoutStyles.layoutAsideItem}>Counter</Link>
+              <Link href={"/ls-sec/table"} className={layoutStyles.layoutAsideItem}>Table</Link>
+              <Link href={"/ls-sec/typography"} className={layoutStyles.layoutAsideItem}>Typography</Link>
             </div>
             <div className={layoutStyles.layoutAsideMenu}>
               <div className={layoutStyles.layoutAsideTitle}>
                 Example
               </div>
+              <Link href={"/exam/ls-api"} className={layoutStyles.layoutAsideItem}>LS API</Link>
               <Link href={"/exam/counter"} className={layoutStyles.layoutAsideItem}>Counter</Link>
               <Link href={"/exam/table"} className={layoutStyles.layoutAsideItem}>Table</Link>
               <Link href={"/exam/typography"} className={layoutStyles.layoutAsideItem}>Typography</Link>
